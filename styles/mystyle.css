@@ -1,0 +1,27 @@
+
+h1 {color:red;
+    background-color: blue;
+    font-size: 36pt;
+}
+.ccc {
+  background-color: red;
+  color: white;
+  font-size: 24pt;
+  border-style: solid;
+  border-width: 15px;
+  border-color:black;
+  padding: 30px;
+  margin: 50px;
+  max-width: 20%;
+}
+.ccc p{
+  color:blue;
+  }
+.ccc h2{
+  color:black;
+  }
+.ccc h1{
+  color: blue;
+  background-color: red;
+  font-size: 22pt;
+ }

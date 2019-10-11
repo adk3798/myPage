@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--
+File: /~aking/public_html/index.html
+GUI Programming I Assignment 4: Styling you first webpage with css
+Adam M. King, UMass Lowell Computer Science Student
+adam_king@student.uml.edu
+uml.cs username: aking
+Updated September 17, 2019
+Description: This is the html file I wil be styling for assignment 4.
+There isn't too much here, just some basic info and links, but it
+serves as a base for styling done in the corresponding style.css <fieldset>
+linked within this file.
+-->
+   <head>
+       <meta charset="utf-8">
+       <title>
+           Adam King Website
+       </title>
+       <link href="css/style.css" rel="stylesheet">
+   </head>
+   <body>
+     <div id="intro">
+         <!-- Intro header with my name and school -->
+         <h1>Adam King</h1>
+         <p>University of Massachusetts Lowell</p>
+     </div>
+
+     <div id="social">
+         <!-- Links to some of my social media. Only the Github and LinkedIn link are real. The other I just added
+         beacuse I wanted to have more links   -->
+         <ul>
+             <li><a href="https://www.linkedin.com/in/adam-king-uml">Linkedin</a></li>
+             <li><a href="https://github.com/adk3798">Github</a></li>
+             <li><a href="http://weblab.cs.uml.edu/~aking/not_found.html">Facebook</a></li>
+             <li><a href="http://weblab.cs.uml.edu/~aking/not_found.html">Twitter</a></li>
+             <li><a href="http://weblab.cs.uml.edu/~aking/not_found.html">Instagram</a></li>
+         </ul>
+     </div>
+       <!-- the wrapper div will hold everything outside of the header and social nav bar
+       this includes the about me section, my picture, the footer and assignment links -->
+       <div id="wrapper">
+
+           <!-- About me section will contain a picture of me, education and hobbies-->
+           <div id="about">
+
+              <!-- links to a picture of me so viewers know what I look like (sort of, the picture is 4 years old) -->
+               <div class="me">
+                   <img src="images/me.jpg" alt="me" >
+               </div>
+
+               <!-- Brief brackground of my education. Just uses simple header and paragraph tags Also
+               includes my current classes -->
+               <div id="about_info">
+                   <h3>Education</h3>
+                   <p>&emsp;&emsp;I graduated from Billerica Memorial High School in 2016.
+                   I am currently an undergrad at UMass Lowell working towards a Bachelor's degree in Computer Science.
+                   This semester I am taking Machine Learning, Analysis of Algorithms, Database I and
+                   GUI Programming I<br></p>
+
+                   <!-- "Hobbies". Used an unordered list format -->
+                   <h3>Hobbies</h3>
+                   <ul>
+                     <li>Going to class</li>
+                     <li>Checkers</li>
+                     <li>Creating lists</li>
+                   </ul>
+               </div>
+           </div>
+
+           <div id="assignments">
+               <!-- This will serve as a directory to see the pages for each assignment.-->
+               <h2>Assignments</h2>
+               <ol>
+                   <li><a href="http://weblab.cs.uml.edu/~aking/index_old.html">Homework 2</a></li>
+                   <li><a href="http://weblab.cs.uml.edu/~aking/HW3/index.html">Homework 3</a></li>
+                   <li><a href="http://weblab.cs.uml.edu/~aking/index.html">Homework 4</a></li>
+               </ol>
+           </div>
+           <!-- footer which will contain just a link to my email -->
+           <div id="footer">
+               <p> Contact me: <a class="email" href="mailto:adam_king@student.uml.edu">adam_king@student.uml.edu</a> </p>
+           </div>
+        </div>
+
+         <p>
+             <a href="http://jigsaw.w3.org/css-validator/check/referer">
+                 <img style="border:0;width:88px;height:31px"
+                     src="http://jigsaw.w3.org/css-validator/images/vcss"
+                     alt="Valid CSS!" />
+             </a>
+         </p>
+   </body>
+</html>

@@ -1,0 +1,156 @@
+/*
+File: /~aking/public_html/HW3/pacific.css
+GUI Programming I Assignment 3: Style a site with external css
+Adam M. King, UMass Lowell Computer Science Student
+adam_king@student.uml.edu
+uml.cs username: aking
+Updated September 30, 2019
+Description: This file provides external css for the page located at
+http://weblab.cs.uml.edu/~aking/HW3/index.html . The point of this file is
+to cause the page to look like a given example without making edits to the
+html file provided to us.
+*/
+header, hgroup, nav, footer, figure, figcaption, aside, section, article {
+	display: block;
+}
+body {
+	/* set the background image to the gradient. It will repeat only horizontally
+	   Below the image will be a solid color matching the bottom of the gradient */
+	background-image: url("ptrbackground.jpg");
+	background-color: #00569f;
+	background-repeat: repeat-x;
+	color: #666666;
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+nav ul {
+	font-size: 1.2em;
+}
+nav a:visited {
+	color: #344873;
+}
+nav a:hover {
+	color: white;
+}
+h1 {
+	margin-bottom: 0;
+	padding: 10px;
+}
+h2 {
+	color: #3399CC;
+}
+h1,
+h2 {
+	font-family: Georgia, "Times New Roman", serif;
+}
+#contact {
+	font-size: 90%;
+}
+dt {
+	color: #000033;
+}
+#wrapper {
+	display: grid;
+	/* For column layout, the first fixed 200px column is meant to fix the nav sidebar width
+	   while the other column auto sizes to allow the rest of the content to resize.
+		 The minimum size on the second column makes sure the wrapper is always at least
+		 600 px wide */
+	grid-template-columns: 200px minmax(400px, 1fr);
+	/* For row layout, the first fixed 60px row is meant to fix the header height,
+	   the second row auto sizes to allow the rest of the content to resize and
+		 the last row is 120 px for the footer */
+	grid-template-rows: 60px  minmax(0, 1fr) 120px;
+	/* regardless of column size, keep a minimum width of 600px and max width of 80% */
+	min-width: 600px;
+	max-width: 80%;
+	/* Next three lines are meant to help center the content on the page */
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 20px;
+	overflow: hidden;
+}
+#wrapper header {
+	/* The header will take up only the first row, which was specifically sized for the header,
+	   and the whole width */
+	grid-row: 1/2;
+	grid-column: 1/3;
+	/* The header will have a right justified sunset image. Anything to the left of the image whil
+	   be a solid color matching the leftmost part of the image */
+	background-image: url("sunset.jpg");
+	background-repeat: no-repeat;
+	background-position: right;
+	background-color: #000032;
+	padding-top: 0px;
+	color: white;
+}
+#wrapper header h1 {
+	margin: 0px;
+}
+#wrapper nav {
+	background-color: #90c8e3;
+	/* The nav bar will take up all rows except the first, since that row is just for the header
+	   and will use only the statically sized first column of 200px */
+	grid-row: 2/4;
+	grid-column: 1/2;
+	padding: 20px;
+	padding-top: 0px;
+	padding-right: 40px;
+	box-sizing: border-box;
+}
+#wrapper nav ul{
+	padding-top: 0px;
+	padding-left: 0px;
+	/* change list style to remove bullets on list */
+	list-style-type: none;
+}
+#wrapper nav a{
+	color: #000032;
+	/* bold the text and remove underlines for nav links */
+	font-weight: bold;
+	text-decoration: none;
+}
+#content img {
+	/* This is to help with text wrapping */
+	float: left;
+	padding-right: 20px;
+}
+#content {
+	/* The content section is meant to resizein both directions. It uses both the resizable
+	   column and resizable row */
+	grid-row: 2/3;
+	grid-column: 2/3;
+  margin: 0;
+  padding: 0;
+	padding-left: 35px;
+	background-color: white;
+}
+#content p{
+	padding-right: 35px;
+}
+#content ul{
+	padding-right: 35px;
+	/* Have the content sections list use the marker.gif for bullets and use inside style position
+	   to make the bullets align with the paragraphs */
+	list-style-position: inside;
+  list-style-image: url('marker.gif');
+}
+.resort {
+	/* Special coloring and boldness for the resort name */
+	color: #697896;
+	font-weight: bold;
+}
+footer {
+	/* decreasing the font size and making it italic */
+	font-family: Georgia, "Times New Roman", serif;
+	font-size: 10pt;
+	font-style: italic;
+	/* The footer uses the 3rd row which is a fixed height of 50 px. It can resize horizontally
+		 however, and will keep the same width as the content section */
+	grid-row: 3/4;
+	grid-column: 2/3;
+	float: left;
+	background-color: white;
+	padding-top: 50px;
+	padding-left: 25px;
+	padding-bottom:20px;
+}
