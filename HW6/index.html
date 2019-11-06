@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--
+File: myPage/HW6/index.html
+GUI Programming I Assignment 6: Dynamically generate table with Javascript
+Adam M. King, UMass Lowell Computer Science Student
+adam_king@student.uml.edu
+uml.cs username: aking
+Updated November 10, 2019
+Description: This is the html file that specifies the content of the page
+for the dynamic table project. It mostly just creates a form for the user
+to enter multiplier and multiplicand values for the table as well as
+provide a div for the table to be placed in.
+-->
+<head>
+    <title>Dynamic Multiplication Table</title>
+    <meta charset="utf-8">
+    <link href="css/hw6css.css" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    <h1> Multiplication Table Generator </h1>
+
+    <!-- here is the form where the table values can be entered -->
+    <form name="table-values">
+
+      <h2> Give the starting and ending value for the multipliers (columns in table) </h2>
+      <div id="multiplier_form">
+        Multiplier Start Value:<br>
+        <!-- Each field is also given a span where an error message can be printed if necessary -->
+        <input type="text" name="hor_start" id="hor_start" value = "1" /><span id="hor_startmsg"></span><br>
+        Multiplier End Value:<br>
+        <input type="text" name="hor_end" id="hor_end" value = "10" /><span id="hor_endmsg"></span><br>
+      </div>
+
+      <h2> Give the starting and ending value for the multiplicands (rows in table) </h2>
+      <div id="multiplicand_form">
+        Multiplicand Start Value:<br>
+        <input type="text" name="vert_start" id="vert_start" value="1" /><span id="vert_startmsg"></span><br>
+        Multiplicand End Value:<br>
+        <input type="text" name="vert_end" id="vert_end" value="10" /><span id="vert_endmsg"></span><br><br>
+      </div>
+
+      <!-- The submit button calls the mkaeTable Javascript function when pressed. That function verifies the fields
+           and creates the table if verification is successful -->
+      <div id="submitButton">
+        <input type="button" value="Make Table" id="makeButton" onclick="return makeTable()" /><span id="submitmsg"></span>
+      </div>
+    </form>
+
+    <!-- This div is where the table will be placed when created -->
+    <div id="mult_table_div">
+    </div>
+    
+    <!-- This line links my Javascript file -->
+    <script src="js/hw6js.js"></script>
+</body>
+</html>
