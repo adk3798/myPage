@@ -27,6 +27,18 @@ function makeTable() {
     var newTable = document.createElement('table');
     var hor_start = parseInt(document.getElementById("hor_start").value);
     var hor_end = parseInt(document.getElementById("hor_end").value);
+    var vert_start = parseInt(document.getElementById("vert_start").value);
+    var vert_end = parseInt(document.getElementById("vert_end").value);
+
+    // decide whether the table will use the small, medium or large text size
+    // depending on the max range between start and end values
+    var sz = "lg-ele";
+    if(Math.abs(hor_start - hor_end) > 30 || Math.abs(vert_start - vert_end) > 30) {
+      sz = "sm-ele";
+    }
+    else if(Math.abs(hor_start - hor_end) > 15 || Math.abs(vert_start - vert_end) > 15) {
+      sz = "md-ele";
+    }
 
     // need blank spot in top left of table
     var row = document.createElement('tr');
@@ -41,6 +53,7 @@ function makeTable() {
     do {
       column = document.createElement('td');
       column.classList.add("multiplier");
+      column.classList.add(sz);
       column.appendChild(document.createTextNode(i));
       row.appendChild(column);
       if( i < hor_end) { i++; }
@@ -50,8 +63,6 @@ function makeTable() {
     // add row to table
     newTable.appendChild(row);
 
-    var vert_start = parseInt(document.getElementById("vert_start").value);
-    var vert_end = parseInt(document.getElementById("vert_end").value);
     var j = hor_start;
     var i = vert_start
     final = false;
@@ -63,6 +74,7 @@ function makeTable() {
       row = document.createElement('tr');
       column = document.createElement('td');
       column.classList.add("multiplicand");
+      column.classList.add(sz);
       column.appendChild(document.createTextNode(i));
       row.appendChild(column);
       // now create columns that show multiplication of value for
@@ -72,6 +84,7 @@ function makeTable() {
       do {
         column = document.createElement('td');
         column.classList.add("result");
+        column.classList.add(sz);
         column.appendChild(document.createTextNode(i*j));
         row.appendChild(column);
         if( j < hor_end) { j++; }

@@ -25,8 +25,8 @@ as well as allow me to have a background image.
   color: white;
   border-style: outset;
   text-align: center;
-  min-width: 25px;
-  min-height: 20px;
+  /*min-width: 25px;
+  min-height: 20px;*/
 }
 
 /*
@@ -39,8 +39,26 @@ as well as allow me to have a background image.
   background-color: white;
   color: black;
   border-style: inset;
-  min-width: 25px;
-  min-height: 20px;
+}
+
+/*
+   These 3 blocks control the font size of the elements. The table elements are
+   assigned to the small, medium or large class depending on the size of the
+   difference between the starting and ending values given.
+*/
+.sm-ele {
+  font-size: 12pt;
+  padding: 1px;
+}
+
+.md-ele {
+  font-size: 18pt;
+  padding: 2px;
+}
+
+.lg-ele {
+  font-size: 22pt;
+  padding: 5px;
 }
 
 /*
@@ -70,14 +88,6 @@ span {
   margin-left: 40px;
   margin-top: 20px;
   margin-bottom: 20px;
-}
-
-/*
-   This block sets the inner padding and font size for table elements
-*/
-.multiplicand, .multiplier, .result {
-  font-size: 26pt;
-  padding: 5px;
 }
 
 /*
