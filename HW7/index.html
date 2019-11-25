@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--
+File: myPage/HW7/index.html
+GUI Programming I Assignment 7: Validate field with jQuery validation plugin
+Adam M. King, UMass Lowell Computer Science Student
+adam_king@student.uml.edu
+uml.cs username: aking
+Updated November 24, 2019
+Description: This is the html file that specifies the content of the page
+for the jQuery validation plugin assignment. It mostly just creates a form
+for the user to enter multiplier and multiplicand values for the table as
+well as provide a div for the table to be placed in.
+-->
+<head>
+    <title>Dynamic Multiplication Table</title>
+    <meta charset="utf-8">
+    <link href="css/hw7css.css" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    <h1> Multiplication Table Generator </h1>
+
+    <!-- here is the form where the table values can be entered -->
+    <form name="table-values" class="cmxform" id="tableform" method="get" action="">
+
+      <h2> Give the starting and ending value for the multipliers (columns in table) </h2>
+      <div id="multiplier_form">
+        Multiplier Start Value:<br>
+        <input name="hor_start" id="hor_start" value = "1" /><br>
+        Multiplier End Value:<br>
+        <input type="text" name="hor_end" id="hor_end" value = "10" /><br>
+      </div>
+
+      <h2> Give the starting and ending value for the multiplicands (rows in table) </h2>
+      <div id="multiplicand_form">
+        Multiplicand Start Value:<br>
+        <input type="text" name="vert_start" id="vert_start" value="1" /><br>
+        Multiplicand End Value:<br>
+        <input type="text" name="vert_end" id="vert_end" value="10" /><br><br>
+      </div>
+
+      <!-- The submit button calls the validation function when clicked -->
+      <div id="submitButton">
+        <input type="submit" value="Make Table" id="makeButton" /></span>
+      </div>
+    </form>
+
+    <!-- This div is where the table will be placed when created -->
+    <div id="mult_table_div">
+    </div>
+
+    <!-- This links the CDNs and my personal Javascript file -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.1/dist/jquery.validate.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/additional-methods.min.js"></script>
+    <script src="js/hw7js.js"></script>
+</body>
+</html>

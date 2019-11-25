@@ -1,0 +1,113 @@
+/*
+File: myPage/HW7/css/hw7css.css
+GUI Programming I Assignment 7: Validate field with jQuery validation plugin
+Adam M. King, UMass Lowell Computer Science Student
+adam_king@student.uml.edu
+uml.cs username: aking
+Updated November 24, 2019
+Description: This is the css file for the jQuery validation plugin project.
+It exists to add style to the generated table, the form and error messages
+as well as allow me to have a background image.
+*/
+
+/* This block makes all the error message red in color */
+label.error {
+  color: red;
+  font-size: 16pt;
+}
+
+/*
+   This block styles the leftmost column and top row of the table
+   It's a simple dsign with an outset border, black backgrond and
+   white text
+*/
+.multiplicand, .multiplier {
+  background-color: black;
+  color: white;
+  border-style: outset;
+  text-align: center;
+  /*min-width: 25px;
+  min-height: 20px;*/
+}
+
+/*
+   This block styles the inner elements of the table where results of the
+   multiplications are presented. It has a white background with black text
+   in order to contrast with the multiplicand and multiplier elements.
+*/
+.result {
+  text-align: center;
+  background-color: white;
+  color: black;
+  border-style: inset;
+}
+
+/*
+   These 3 blocks control the font size of the elements. The table elements are
+   assigned to the small, medium or large class depending on the size of the
+   difference between the starting and ending values given.
+*/
+.sm-ele {
+  font-size: 12pt;
+  padding: 1px;
+}
+
+.md-ele {
+  font-size: 18pt;
+  padding: 2px;
+}
+
+.lg-ele {
+  font-size: 22pt;
+  padding: 5px;
+}
+
+/*
+   These next two blocks just add spacing to the form so it looks a bit nicer
+*/
+#hor_start, #hor_end, #vert_start, #vert_end {
+  margin: 10px;
+  border-radius: 25px;
+  padding-left: 10px;
+}
+
+#multiplier_form, #multiplicand_form {
+  margin-left: 40px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+/*
+   This block styles the submit button of the form. It's mostly spacing
+   but I also added in a background image to the button
+*/
+#makeButton {
+  margin-left: 20px;
+  margin-bottom: 20px;
+  width: 150px;
+  height: 60px;
+  padding: 5px;
+  font-size: 15pt;
+  vertical-align: text-bottom;
+  background-image: url("../img/btn.jpeg");
+  background-repeat: repeat-x;
+  background-color: white;
+  background-size: 40px 20px;
+}
+
+/*
+   This block is used for setting the pages background color, text color
+   and background image.
+*/
+body {
+  background-image: url("../img/bg.jpg");
+  background-color: black;
+  background-repeat: no-repeat;
+  background-position: top right;
+  color: white;
+  min-width: 790px;
+}
+
+h2 {
+  margin-left: 20px;
+}
