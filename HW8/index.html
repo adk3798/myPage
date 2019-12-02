@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--
+File: myPage/HW8/index.html
+GUI Programming I Assignment 8: jQuery sliders and tabs
+Adam M. King, UMass Lowell Computer Science Student
+adam_king@student.uml.edu
+uml.cs username: aking
+Updated December 1, 2019
+Description: This is the html file that specifies the content of the page
+for the jQuery sliders and tabs assignment. It mostly just creates a form
+for the user to enter multiplier and multiplicand values for the table as
+well as make space for buttons to call functions and the tabs/tables.
+-->
+<head>
+    <title>Dynamic Multiplication Table</title>
+    <!--<meta charset="utf-8">-->
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link href="css/hw8css.css" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    <h1> Multiplication Table Generator </h1>
+
+    <!-- here is the form where the table values can be entered -->
+    <form name="table-values" class="cmxform" id="tableform" method="get" action="">
+
+      <h2> Give the starting and ending value for the multipliers (columns in table) </h2>
+      <div id="multiplier_form">
+        Multiplier Start Value:<br>
+        <input name="hor_start" id="hor_start" value = "1" /><br>
+        <div id="hor_start_slider"></div><br>
+        Multiplier End Value:<br>
+        <input type="text" name="hor_end" id="hor_end" value = "10" /><br>
+        <div id="hor_end_slider"></div><br>
+      </div>
+
+      <h2> Give the starting and ending value for the multiplicands (rows in table) </h2>
+      <div id="multiplicand_form">
+        Multiplicand Start Value:<br>
+        <input type="text" name="vert_start" id="vert_start" value="1" /><br>
+        <div id="vert_start_slider"></div><br>
+        Multiplicand End Value:<br>
+        <input type="text" name="vert_end" id="vert_end" value="10" /><br><br>
+        <div id="vert_end_slider"></div><br>
+      </div>
+
+      <!-- This div contains buttons for Making tables, removing active tab and removing all tabs -->
+      <div id="submitButton">
+        <input type="submit" value="Make Table" id="makeButton" /></span>
+        <input type="button" value="Remove Selected Tab" id="delTabButton" /></span>
+        <input type="button" value="Remove All Tabs" id="delAllTabButton" /></span>
+      </div>
+    </form>
+
+    <!-- Form for deleting all tabs within a specified range -->
+    <form name="table-values" class="cmxform" id="del_form" method="get" action="">
+      <div>
+        <input type="submit" value="Remove Tab(s) in Range" id="delTabsInRangeButton" /></span>
+      </div>
+      <div id="del_form_fields">
+        <label for="del_min">Min:</label>
+        <input type="text" name="del_min" id="del_min" value="1" />
+        <label for="del_min">Max:</label>
+        <input type="text" name="del_max" id="del_max" value="1" />
+      </div>
+    </form>
+    <br><br><br>
+    <!-- This div is where the error messages for the form for deleting tabs within
+         a range is displayed -->
+    <div class ="delErr"></div>
+    <!-- Providing a short description for how deleting tabs in range works -->
+    <p id="del_desc"> Will delete all tabs that exist numbered from min to max.<br>
+      For example, giving min of 1 and max of 3 would delete any tab labeled "Tab 1", "Tab 2" or "Tab 3"
+    </p>
+
+    <!-- This is where tabs and tables will be placed -->
+    <div id="myTabs">
+      <ul id="tabList">
+      </ul>
+    </div>
+
+    <!-- This links the CDNs and my personal Javascript file -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.1/dist/jquery.validate.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/additional-methods.min.js"></script>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="js/hw8js.js"></script>
+
+
+</body>
+</html>

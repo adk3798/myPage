@@ -1,0 +1,214 @@
+/*
+File: myPage/HW8/css/hw8css.css
+GUI Programming I Assignment 8: Use jQuery sliders and tabs
+Adam M. King, UMass Lowell Computer Science Student
+adam_king@student.uml.edu
+uml.cs username: aking
+Updated December 1, 2019
+Description: This is the css file for the jQuery slider and tabs assignment.
+It exists to add style to the generated table, the forms, error messages
+and the sliders.
+*/
+
+/* This block makes all the error message red in color */
+label.error {
+  color: red;
+  font-size: 16pt;
+}
+
+/*
+   This block styles the leftmost column and top row of the table
+   It's a simple dsign with an outset border, black backgrond and
+   white text
+*/
+.multiplicand, .multiplier {
+  background-color: black;
+  color: white;
+  border-style: outset;
+  text-align: center;
+  /*min-width: 25px;
+  min-height: 20px;*/
+}
+
+/*
+   This block styles the inner elements of the table where results of the
+   multiplications are presented. It has a white background with black text
+   in order to contrast with the multiplicand and multiplier elements.
+*/
+.result {
+  text-align: center;
+  background-color: white;
+  color: black;
+  border-style: inset;
+}
+
+/*
+   These 3 blocks control the font size of the elements. The table elements are
+   assigned to the small, medium or large class depending on the size of the
+   difference between the starting and ending values given.
+*/
+.sm-ele {
+  font-size: 12pt;
+  padding: 1px;
+}
+
+.md-ele {
+  font-size: 18pt;
+  padding: 2px;
+}
+
+.lg-ele {
+  font-size: 22pt;
+  padding: 5px;
+}
+
+/*
+   These next two blocks just add spacing to the form so it looks a bit nicer
+*/
+#hor_start, #hor_end, #vert_start, #vert_end {
+  margin: 10px;
+  border-radius: 25px;
+  padding-left: 10px;
+}
+
+#multiplier_form, #multiplicand_form {
+  margin-left: 40px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+/*
+   This block styles the submit button of the form. It's mostly spacing
+   but I also added in a background image to the button
+*/
+#makeButton {
+  margin-left: 20px;
+  margin-bottom: 20px;
+  width: 150px;
+  height: 60px;
+  padding: 5px;
+  font-size: 15pt;
+  vertical-align: text-bottom;
+  background-image: url("../img/btn.jpeg");
+  background-repeat: repeat-x;
+  background-color: white;
+  background-size: 40px 20px;
+}
+
+/*
+   This block is used for setting the pages background color, text color
+   and background image.
+*/
+body {
+  background-image: url("../img/bg.jpg");
+  background-color: black;
+  background-repeat: no-repeat;
+  background-position: top right;
+  color: white;
+  min-width: 790px;
+}
+
+h2 {
+  margin-left: 20px;
+}
+
+/*
+    Styling for the slider. Mostly just messing with the size
+*/
+#hor_start_slider, #hor_end_slider, #vert_start_slider, #vert_end_slider {
+    height: 10px;
+    width: 300px;
+    margin-top: 5px;
+}
+
+/*
+   Styling for "Remove Selected Tab" button. Mostly the same as Make Table button
+*/
+#delTabButton {
+  margin-left: 20px;
+  margin-bottom: 20px;
+  width: 180px;
+  height: 60px;
+  padding: 5px;
+  font-size: 12pt;
+  vertical-align: text-bottom;
+  background-image: url("../img/btn.jpeg");
+  background-repeat: repeat-x;
+  background-color: white;
+  background-size: 40px 20px;
+}
+
+/*
+    This block sets a min height on divs where tables are displayed
+*/
+#myTabs div {
+  min-height: 920px;
+}
+
+/*
+    Next 7 blocks add a small amount of styling to form for deleting
+    tabs within a range. Mostly sizing and aligning fields
+*/
+#del_form div{
+  float: left;
+}
+
+#del_form_fields {
+  margin-top: 15px;
+}
+
+#del_min, #del_max{
+  max-width: 50px;
+  /*margin-top: 10px;*/
+  border-radius: 25px;
+  padding-left: 5px;
+  /*float: left;*/
+}
+
+#del_form label {
+  vertical-align: top;
+}
+
+#delTabsInRangeButton {
+  /*float: left;*/
+  margin-left: 20px;
+  margin-bottom: 0px;
+  margin-right: 10px;
+  width: 200px;
+  height: 60px;
+  padding: 5px;
+  font-size: 12pt;
+  vertical-align: text-bottom;
+  background-image: url("../img/btn.jpeg");
+  background-repeat: repeat-x;
+  background-color: white;
+  background-size: 40px 20px;
+}
+
+#del_desc{
+  display: block;
+  margin-left: 20px;
+}
+
+.delErr {
+  margin-left: 20px;
+  margin-top: 10px;
+  color: red;
+}
+
+/*
+   styling for button that deletes all tabs. Similar to ll the other buttons
+*/
+#delAllTabButton {
+  margin-left: 20px;
+  margin-bottom: 20px;
+  width: 180px;
+  height: 60px;
+  padding: 5px;
+  font-size: 14pt;
+  vertical-align: text-bottom;
+  background-image: url("../img/btn.jpeg");
+  background-repeat: repeat-x;
+  background-color: white;
+  background-size: 40px 20px;
+}
