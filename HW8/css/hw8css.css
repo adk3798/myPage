@@ -212,3 +212,27 @@ h2 {
   background-color: white;
   background-size: 40px 20px;
 }
+
+/*
+   removing border on area where tabs and tables are displayed
+*/
+#myTabs {
+  border: none;
+  padding: 0px;
+}
+
+/*
+   adding border back to just the tab part. I don't want borders around the table
+*/
+#tabList {
+  border: 1px solid #c5c5c5;
+  margin: 5px;
+}
+
+/*
+   making background of area with table black to match rest of page
+*/
+#myTabs div{
+  background-color: black;
+  border: none;
+}

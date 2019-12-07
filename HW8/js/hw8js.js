@@ -14,6 +14,12 @@ inside of tabs
 // functions when clicked
 document.getElementById("delTabButton").onclick = function() {delCurTab()};
 document.getElementById("delAllTabButton").onclick = function() {delAllTabs()};
+// tabswap variable tells if currently swapping between tabs. When swapping tabs i want to change the sliders'
+// values without chaning the table in the swapped to tab so I need this special variable to tell
+// me when a tabswap is occuring.
+var tabSwap = false;
+// similar to tabswap but for making tables
+var making_table = false;
 
 // validation function for make table form fields
 function valform() {
@@ -21,13 +27,9 @@ function valform() {
       // default digits didn't allow negative integers so I'm making my own validation function
       return (/^[-+]?\d+$/.test(value));
   });
-
-  // This function is from hw7 and isn't necessary for 8 but I've left it in.
-  $.validator.addMethod("inRange", function (value, element, param) {
-      // validation function to make sure start and end values are within 50 of each other
-      // only actually checks range if other field is an integer
-      return (!(/^[-+]?\d+$/.test($(param).val())) ||
-               Math.abs(parseInt(value) - parseInt($(param).val())) <= 50)
+  $.validator.addMethod("maxTabs", function () {
+      // max tabs at once is 10
+      return !($("#myTabs ul li").length >= 10);
   });
 
   $("#tableform").validate({
@@ -37,30 +39,27 @@ function valform() {
       hor_start: {
         required: true,
         isInt: true,
-        min: -10000,
-        max: 10000,
-        inRange: "#hor_end"
+        min: -50,
+        max: 50
       },
       hor_end: {
         required: true,
         isInt: true,
-        min: -10000,
-        max: 10000,
-        inRange: "#hor_start"
+        min: -50,
+        max: 50
       },
       vert_start: {
         required: true,
         isInt: true,
-        min: -10000,
-        max: 10000,
-        inRange: "#vert_end"
+        min: -50,
+        max: 50
       },
       vert_end: {
+        maxTabs: true,
         required: true,
         isInt: true,
-        min: -10000,
-        max: 10000,
-        inRange: "#vert_start"
+        min: -50,
+        max: 50
       },
     },
 
@@ -69,30 +68,27 @@ function valform() {
          hor_start: {
            required: "This field is required!",
            isInt: "This field must be given an integer.",
-           min: "Given integer must be >= -10000",
-           max: "Given integer must be <= 10000",
-           inRange: "Max range (difference between start and end) is 50"
+           min: "Given integer must be >= -50",
+           max: "Given integer must be <= 50"
          },
          hor_end: {
            required: "This field is required!",
            isInt: "This field must be given an integer.",
-           min: "Given integer must be >= -10000",
-           max: "Given integer must be <= 10000",
-           inRange: "Max range (difference between start and end) is 50"
+           min: "Given integer must be >= -50",
+           max: "Given integer must be <= 50"
          },
          vert_start: {
            required: "This field is required!",
            isInt: "This field must be given an integer.",
-           min: "Given integer must be >= -10000",
-           max: "Given integer must be <= 10000",
-           inRange: "Max range (difference between start and end) is 50"
+           min: "Given integer must be >= -50",
+           max: "Given integer must be <= 50"
          },
          vert_end: {
+           maxTabs: "Maximum tabs at once is 10!",
            required: "This field is required!",
            isInt: "This field must be given an integer.",
-           min: "Given integer must be >= -10000",
-           max: "Given integer must be <= 10000",
-           inRange: "Max range (difference between start and end) is 50"
+           min: "Given integer must be >= -50",
+           max: "Given integer must be <= 50"
          }
        },
 
@@ -109,6 +105,9 @@ function valform() {
          // want to change slider and fields to match current table
          // when user clicks different tab. This is a listener for that
          $( ".selector" ).on( "tabsactivate", function( event, ui ) {tabChange();} );
+
+         // if a table is being made, wait for it to finish
+         while(making_table){}
 
          // Get form values and pass them into "getNextTab" which will make a tab for the table
          var hor_start = parseInt(document.getElementById("hor_start").value);
@@ -152,6 +151,7 @@ function valDelForm() {
         required: true,
         isInt: true,
         min: 1,
+        max: 10
       },
     },
 
@@ -167,6 +167,7 @@ function valDelForm() {
            required: "Max field is required!",
            isInt: "Max field must be given an integer.",
            min: "Max field must be >= 1",
+           max: "Max field must be <= 10"
          },
        },
 
@@ -200,24 +201,24 @@ function setup_slider(slider_id, textbox_id) {
   $(function () {
   // this generates the slider
   $(slider_id).slider({
-    min: -10, max: 10, value: 0,
+    min: -50, max: 50, value: 0,
     // this function is run when slider is moved. It will also update text box
     slide: function( event, ui) {
-      //console.log(ui.value);
+      // change textbox value if slider slides
       $(textbox_id).val(ui.value);
-      // if there are tabs present at least one is active so the table must be
-      // dynamically updated.
-      if($("#myTabs ul li").length > 0){
+    },
+    // if value is changed with slider, dynamically update table and tab info
+    // to reflect new bounds
+    change: function(event, ui) {
+      if($("#myTabs ul li").length > 0 && !tabswap){
+        // first I nee to gather which tab and div need changing
         var active_index = $("#myTabs").tabs('option', 'active');
         //console.log(active_index);
         var tab = $("#myTabs").find(".ui-tabs-nav li:eq(" + active_index + ")");
         var div_id = tab.attr('id');
         div_id = div_id.substring(3, div_id.length);
-        // update the table. Pass in the id of the div where the table resides
+        // Now I want to actually change them.
         makeTable(div_id);
-        // update the tab. The tab keeps info of the bounds of the table it
-        // contains so if the bounds of the table are changed the tab should be
-        // changed as well.
         updateTab(tab.attr('id'));
       }
     }
@@ -242,18 +243,21 @@ function setup_slider(slider_id, textbox_id) {
     // a default value and then regardless, update table and tab
     if (isNaN(newVal)) {
       $(textbox_id).val(0);
+      $(slider_id).slider("option", "value", 0);
       if($("#myTabs ul li").length > 0){
         makeTable(div_id);
         updateTab(tab.attr('id'));
       }
-    } else if(newVal < -10) {
-      $(textbox_id).val(-10);
+    } else if(newVal < -50) {
+      $(textbox_id).val(-50);
+      $(slider_id).slider("option", "value", -50);
       if($("#myTabs ul li").length > 0){
         makeTable(div_id);
         updateTab(tab.attr('id'));
       }
-    } else if(newVal > 10) {
-      $(textbox_id).val(10);
+    } else if(newVal > 50) {
+      $(textbox_id).val(50);
+      $(slider_id).slider("option", "value", 50);
       if($("#myTabs ul li").length > 0){
         makeTable(div_id);
         updateTab(tab.attr('id'));
@@ -389,6 +393,7 @@ function getNextTab(x1, x2, y1, y2) {
 // if user clicks a new tab, must change slider and text field to mach table
 // in new active tab. This function does that.
 function tabChange() {
+  tabswap = true;
   var active_index = $("#myTabs").tabs('option', 'active');
   //console.log(active_index);
   var tab = $("#myTabs").find(".ui-tabs-nav li:eq(" + active_index + ")");
@@ -413,6 +418,7 @@ function tabChange() {
   var y2_val = $("#" + div_id + " table tr:last-child td:first-child").html();
   $("#vert_end").val(parseInt(y2_val));
   $("#vert_end_slider").slider("option", "value", parseInt(y2_val));
+  tabswap = false;
 }
 
 // if slider or text fields are changed and table is dynamically updated then
@@ -443,6 +449,7 @@ function updateTab(tab_id) {
 // change from homework 7 is it now takes argument which is id of div where it should palce the
 // table it creates
 function makeTable(content_id) {
+  making_table = true;
   var newTable = document.createElement('table');
   var hor_start = parseInt(document.getElementById("hor_start").value);
   var hor_end = parseInt(document.getElementById("hor_end").value);
@@ -527,4 +534,5 @@ function makeTable(content_id) {
   mult_table.append(newTable);
   // make the user's active tab the one with the newly created table
   $("#myTabs").tabs({ active: parseInt(content_id)-1 });
+  making_table = false;
 }
