@@ -1,0 +1,17 @@
+Adam King
+HW9 write-up
+
+Generating the 7 random tiles seems to work.
+Tiles are filled back in from the remaining pool of tiles once a word is submitted.
+Tiles can be dropped onto board. They fly back to holder if dropped elsewhere.
+Tiles cannot occupy the same board space.
+Program can get the value of the tiles on the board for scoring.
+The scoring appears to work fine. There is one double letter and two double word tiles that work as intended.
+The total score keeps continually adds to itself whenever a word is submitted until the page is refreshed or the user clicks the restart game button.
+Restart game button resets the tiles (7 new random ones, all tiles are added back to pool)
+Reset game button resets the word and total score.
+Does not check for real words but only allows submissions of score > 0 (can't submit single blank or nothing) and tiles must be continuously placed on board.
+Only single board line
+
+The only thing that is off with it is it doesn't work at all on mobile (can't drag tiles) and you can't scroll if your screen is too small to see the whole game.
+Adding scrolling can mess with the tiles positioning due to use of fixed and absolute positioning. That part of it isn't great.
