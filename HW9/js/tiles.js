@@ -1,0 +1,111 @@
+/*
+File: myPage/HW9/js/tiles.js
+GUI Programming I Assignment 9: Scrabble
+Adam M. King, UMass Lowell Computer Science Student
+adam_king@student.uml.edu
+uml.cs username: aking
+Updated December 16, 2019
+Description: This file defines my tiles data structure.
+*/
+
+var tile_arr = new Array(100);
+    tile_arr[0] = {"name":"A", "val":1};
+    tile_arr[1] = {"name":"A", "val":1};
+	  tile_arr[2] = {"name":"A", "val":1};
+	  tile_arr[3] = {"name":"A", "val":1};
+	  tile_arr[4] = {"name":"A", "val":1};
+	  tile_arr[5] = {"name":"A", "val":1};
+	  tile_arr[6] = {"name":"A", "val":1};
+	  tile_arr[7] = {"name":"A", "val":1};
+	  tile_arr[8] = {"name":"A", "val":1};
+	  tile_arr[9] = {"name":"B", "val":3};
+	  tile_arr[10] = {"name":"B", "val":3};
+	  tile_arr[11] = {"name":"C", "val":3};
+	  tile_arr[12] = {"name":"C", "val":3};
+	  tile_arr[13] = {"name":"D", "val":2};
+	  tile_arr[14] = {"name":"D", "val":2};
+	  tile_arr[15] = {"name":"D", "val":2};
+	  tile_arr[16] = {"name":"D", "val":2};
+	  tile_arr[17] = {"name":"E", "val":1};
+	  tile_arr[18] = {"name":"E", "val":1};
+	  tile_arr[19] = {"name":"E", "val":1};
+	  tile_arr[20] = {"name":"E", "val":1};
+	  tile_arr[21] = {"name":"E", "val":1};
+	  tile_arr[22] = {"name":"E", "val":1};
+	  tile_arr[23] = {"name":"E", "val":1};
+	  tile_arr[24] = {"name":"E", "val":1};
+	  tile_arr[25] = {"name":"E", "val":1};
+	  tile_arr[26] = {"name":"E", "val":1};
+	  tile_arr[27] = {"name":"E", "val":1};
+	  tile_arr[28] = {"name":"E", "val":1};
+	  tile_arr[29] = {"name":"F", "val":4};
+	  tile_arr[30] = {"name":"F", "val":4};
+	  tile_arr[31] = {"name":"G", "val":2};
+	  tile_arr[32] = {"name":"G", "val":2};
+	  tile_arr[33] = {"name":"G", "val":2};
+	  tile_arr[34] = {"name":"H", "val":4};
+	  tile_arr[35] = {"name":"H", "val":4};
+	  tile_arr[36] = {"name":"I", "val":1};
+	  tile_arr[37] = {"name":"I", "val":1};
+	  tile_arr[38] = {"name":"I", "val":1};
+	  tile_arr[39] = {"name":"I", "val":1};
+	  tile_arr[40] = {"name":"I", "val":1};
+	  tile_arr[41] = {"name":"I", "val":1};
+	  tile_arr[42] = {"name":"I", "val":1};
+	  tile_arr[43] = {"name":"I", "val":1};
+	  tile_arr[44] = {"name":"I", "val":1};
+	  tile_arr[45] = {"name":"J", "val":8};
+	  tile_arr[46] = {"name":"K", "val":5};
+	  tile_arr[47] = {"name":"L", "val":1};
+	  tile_arr[48] = {"name":"L", "val":1};
+	  tile_arr[49] = {"name":"L", "val":1};
+	  tile_arr[50] = {"name":"L", "val":1};
+	  tile_arr[51] = {"name":"M", "val":3};
+	  tile_arr[52] = {"name":"M", "val":3};
+	  tile_arr[53] = {"name":"N", "val":1};
+	  tile_arr[54] = {"name":"N", "val":1};
+	  tile_arr[55] = {"name":"N", "val":1};
+	  tile_arr[56] = {"name":"N", "val":1};
+	  tile_arr[57] = {"name":"N", "val":1};
+	  tile_arr[58] = {"name":"N", "val":1};
+	  tile_arr[59] = {"name":"O", "val":1};
+	  tile_arr[60] = {"name":"O", "val":1};
+	  tile_arr[61] = {"name":"O", "val":1};
+	  tile_arr[62] = {"name":"O", "val":1};
+	  tile_arr[63] = {"name":"O", "val":1};
+	  tile_arr[64] = {"name":"O", "val":1};
+	  tile_arr[65] = {"name":"O", "val":1};
+	  tile_arr[66] = {"name":"O", "val":1};
+	  tile_arr[67] = {"name":"P", "val":3};
+	  tile_arr[68] = {"name":"P", "val":3};
+	  tile_arr[69] = {"name":"Q", "val":10};
+	  tile_arr[70] = {"name":"R", "val":1};
+	  tile_arr[71] = {"name":"R", "val":1};
+	  tile_arr[72] = {"name":"R", "val":1};
+	  tile_arr[73] = {"name":"R", "val":1};
+	  tile_arr[74] = {"name":"R", "val":1};
+	  tile_arr[75] = {"name":"R", "val":1};
+	  tile_arr[76] = {"name":"S", "val":1};
+	  tile_arr[77] = {"name":"S", "val":1};
+	  tile_arr[78] = {"name":"S", "val":1};
+	  tile_arr[79] = {"name":"S", "val":1};
+	  tile_arr[80] = {"name":"T", "val":1};
+	  tile_arr[81] = {"name":"T", "val":1};
+	  tile_arr[82] = {"name":"T", "val":1};
+	  tile_arr[83] = {"name":"T", "val":1};
+	  tile_arr[84] = {"name":"T", "val":1};
+	  tile_arr[85] = {"name":"T", "val":1};
+	  tile_arr[86] = {"name":"U", "val":1};
+	  tile_arr[87] = {"name":"U", "val":1};
+	  tile_arr[88] = {"name":"U", "val":1};
+	  tile_arr[89] = {"name":"U", "val":1};
+	  tile_arr[90] = {"name":"V", "val":4};
+	  tile_arr[91] = {"name":"V", "val":4};
+	  tile_arr[92] = {"name":"W", "val":4};
+	  tile_arr[93] = {"name":"W", "val":4};
+	  tile_arr[94] = {"name":"X", "val":8};
+	  tile_arr[95] = {"name":"Y", "val":4};
+	  tile_arr[96] = {"name":"Y", "val":4};
+	  tile_arr[97] = {"name":"Z", "val":10};
+	  tile_arr[98] = {"name":"Blank", "val":0};
+	  tile_arr[99] = {"name":"Blank", "val":0};

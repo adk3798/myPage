@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--
+File: myPage/HW9/index.html
+GUI Programming I Assignment 9: Scrabble
+Adam M. King, UMass Lowell Computer Science Student
+adam_king@student.uml.edu
+uml.cs username: aking
+Updated December 16, 2019
+Description: This is the html file for the scrabble project. It add in all the
+necessary html that the related css and Javascript files will work with
+-->
+<head>
+    <title>Scrabble</title>
+    <!--<meta charset="utf-8">-->
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link href="css/hw9css.css" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    <h1> Scrabble </h1>
+
+    <!-- This defined the holder where the pieces are stored if not on the board -->
+    <div id="holder">
+      <img src="img/holder.webp" alt="Tile Holder" width="450px" height="80px">
+      <div id="slot1" class="slot"></div>
+      <div id="slot2" class="slot"></div>
+      <div id="slot3" class="slot"></div>
+      <div id="slot4" class="slot"></div>
+      <div id="slot5" class="slot"></div>
+      <div id="slot6" class="slot"></div>
+      <div id="slot7" class="slot"></div>
+    </div>
+
+    <!-- This defines the board itself. It includes seven squares -->
+    <div id="board">
+      <div id="square1" class="square normal">
+        <img src="img/board/normal.png" alt="A Tile" width="54px" height="54px">
+      </div>
+
+      <div id="square2" class="square double_word">
+        <img src="img/board/double_word.png" alt="B Tile" width="54px" height="54px">
+      </div>
+
+      <div id="square3" class="square normal">
+        <img src="img/board/normal.png" alt="C Tile" width="54px" height="54px">
+      </div>
+
+      <div id="square4" class="square double_letter">
+        <img src="img/board/double_letter.png" alt="D Tile" width="54px" height="54px">
+      </div>
+
+      <div id="square5" class="square normal">
+        <img src="img/board/normal.png" alt="E Tile" width="54px" height="54px">
+      </div>
+
+      <div id="square6" class="square double_word">
+        <img src="img/board/double_word.png" alt="F Tile" width="54px" height="54px">
+      </div>
+
+      <div id="square7" class="square normal">
+        <img src="img/board/normal.png" alt="G Tile" width="54px" height="54px">
+      </div>
+    </div>
+
+
+    <!-- The next 5 divs exist to display information to the user. Some are for
+         displaying errors and others display relevant information such as score
+         for the current word -->
+    <div id = "word_score_div">
+      <p>Word Score: <span>0</span></p>
+    </div>
+
+    <div id = "score_div">
+      <p>Total Score: <span>0</span></p>
+    </div>
+
+    <div id = "word_error">
+      <p><span></span></p>
+    </div>
+
+    <div id = "submit_error">
+      <p><span></span></p>
+    </div>
+
+    <div id = "tiles_remaining_div">
+      <p>Tiles Remaining: <span>100</span></p>
+    </div>
+
+
+    <!-- These two buttons are used to submit a word or restart
+         a game, respectibely -->
+    <input type="button" value="Submit Word" id="submitWord" /></span>
+    <input type="button" value="Restart Game" id="restart" /></span>
+
+    <!-- This container exists to limit where you're allowed to drag the tiles.
+          Tiles cannot be dragged beyond this container -->
+    <div id = "container"></div>
+
+    <!-- This links the CDNs and my personal Javascript file -->
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <!-- the tiles.js file includes my tiles data structure -->
+    <script src="js/tiles.js"></script>
+    <script src="js/hw9js.js"></script>
+</body>
+</html>

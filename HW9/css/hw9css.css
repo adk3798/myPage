@@ -1,0 +1,210 @@
+/*
+File: myPage/HW9/css/hw9css.css
+GUI Programming I Assignment 9: Scrabble
+Adam M. King, UMass Lowell Computer Science Student
+adam_king@student.uml.edu
+uml.cs username: aking
+Updated December 16, 2019
+Description: The css file for the scrabble project. Most of
+this file used for positioning the various elements.
+*/
+
+/*
+  The next 9 blocks mostly position the holder and "slots" which
+  are the spaces on the holder where tiles reside
+*/
+#holder {
+  width: 450px;
+  height: 80px;
+  position: fixed;
+  margin-left: 50px
+}
+
+.slot {
+  position: absolute;
+  width: 57px;
+  height: 150px;
+  /*border: solid 2px black;*/
+}
+
+#slot1 {
+  left: 20px;
+  top: -28px;
+}
+#slot2 {
+  left: 80px;
+  top: -28px;
+}
+#slot3 {
+  left: 140px;
+  top: -28px;
+}
+#slot4 {
+  left: 200px;
+  top: -28px;
+}
+#slot5 {
+  left: 260px;
+  top: -28px;
+}
+#slot6 {
+  left: 320px;
+  top: -28px;
+}
+#slot7 {
+  left: 380px;
+  top: -28px;
+}
+
+/*
+  This block gives tiles absolute positioning and sizes them. It also gives them a
+  default red outline
+*/
+.tile {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  border: solid 4px red;
+  z-index: 10;
+}
+
+/*
+  The next 9 blocks are mostly for positioning the board and the "squares" which
+  are the spots on the board that pieces can be dragged to.
+*/
+#board {
+  width: 450px;
+  height: 80px;
+  position: fixed;
+  margin-top: 200px;
+  margin-left: 50px;
+}
+
+.square {
+  position: absolute;
+  width: 51px;
+  height: 54px;
+  border: solid 2px black;
+}
+
+#square1 {
+  left: 0px;
+}
+#square2 {
+  left: 54px;
+}
+#square3 {
+  left: 108px;
+}
+#square4 {
+  left: 162px;
+}
+#square5 {
+  left: 216px;
+}
+#square6 {
+  left: 270px;
+}
+#square7 {
+  left: 324px;
+}
+
+/*
+  Tiles that have been placed on the board get a green outline
+*/
+.onBoard {
+  border-color: #00ff00;
+  z-index: 9;
+}
+
+/*
+  This provides a glow effect behind board spaces that have tiles
+  hovering above them to tell the user they are currently in position
+  to drop a tile on that square
+*/
+.square.ui-droppable-hover {
+  box-shadow: 0px 0px 10px 5px #000000;
+  z-index: 1;
+}
+
+/*
+  The next 5 blocks give positioning to the various information divs on the page.
+  For example, I want the tiles reamining info to the left of the holder and the
+  submit error right below the submission button.
+*/
+#word_score_div {
+  width: 450px;
+  height: 80px;
+  position: fixed;
+  margin-left: 50px;
+  margin-top: 250px;
+}
+
+#score_div {
+  width: 450px;
+  height: 80px;
+  position: fixed;
+  margin-left: 300px;
+  margin-top: 250px;
+}
+
+#tiles_remaining_div {
+  width: 200px;
+  height: 80px;
+  position: fixed;
+  margin-left: 505px;
+  margin-top: 0px;
+}
+
+#word_error {
+  width: 450px;
+  height: 80px;
+  position: fixed;
+  margin-left: 450px;
+  margin-top: 200px;
+  color: red;
+  font-weight: bold;
+  font-size: 20pt;
+}
+
+#submit_error {
+  width: 450px;
+  height: 80px;
+  position: fixed;
+  margin-left: 50px;
+  margin-top: 360px;
+  color: red;
+  font-weight: bold;
+  font-size: 20pt;
+}
+
+/*
+  These next two blocks position and size the submit word and restart game buttons
+*/
+#submitWord {
+  width: 200px;
+  height: 80px;
+  position: fixed;
+  margin-left: 50px;
+  margin-top: 300px;
+  z-index: 0;
+}
+
+#restart {
+  width: 200px;
+  height: 80px;
+  position: fixed;
+  margin-left: 300px;
+  margin-top: 300px;
+  z-index: 0;
+}
+
+/*
+  This last block is used for sizing "container" which defines the area in
+  which the user is allowed to drag tiles.
+*/
+#container {
+  width: 600px;
+  height: 300px;
+  position: fixed
+}
